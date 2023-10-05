@@ -1,0 +1,5 @@
+package cartas;
+
+public enum TipoDeCarta {
+	COMPRAQUATRO, COMPRADOIS, PULA, REVERSO, MUDACOR, COMUM, ESQUERDA, DIREITA;
+}
