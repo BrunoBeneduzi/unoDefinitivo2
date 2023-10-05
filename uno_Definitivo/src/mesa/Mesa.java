@@ -55,34 +55,37 @@ public class Mesa {
 			case COMUM:
 				this.colocaCartaNaMesa(carta);//coloca a carta que foi jogada na mesa
 				this.colocarCartaNoBaralhoReserva(carta);//remove a carta do jogador e coloca no baralho reserva
+				this.compraDoisAgora(carta);
 				this.comprarQuatroAgora();//compra +4
 				this.direçãoDoJogoMaisReverso(this.direcao, carta);//define a direçaõ do jogo
-				
 				break;
 			case PULA:
-				this.colocaCartaNaMesa(carta);//coloca a carta que foi jogada na mesa
-				this.colocarCartaNoBaralhoReserva(carta);//remove a carta do jogador e coloca no baralho reserva
-				this.comprarQuatroAgora();//compra +4
+				this.colocaCartaNaMesa(carta);
+				this.colocarCartaNoBaralhoReserva(carta);
+				this.compraDoisAgora(carta);
+				this.comprarQuatroAgora();
 				this.pular(carta);// se a carta foi de pular ele vai realizar a ação
-				this.direçãoDoJogoMaisReverso(this.direcao, carta);//define a direçaõ do jogo
+				this.direçãoDoJogoMaisReverso(this.direcao, carta);
 				break;
 			case REVERSO:
-				this.colocaCartaNaMesa(carta);//coloca a carta que foi jogada na mesa
-				this.colocarCartaNoBaralhoReserva(carta);//remove a carta do jogador e coloca no baralho reserva
-				this.comprarQuatroAgora();//compra +4
+				this.colocaCartaNaMesa(carta);
+				this.colocarCartaNoBaralhoReserva(carta);
+				this.compraDoisAgora(carta);
+				this.comprarQuatroAgora();
 				this.reverso(carta);//se a carta for um reverso, vai ser modificado a direção do jogo
 				this.direçãoDoJogoMaisReverso(this.direcao, carta);//define a direçaõ do jogo
 				break;
 			case COMPRADOIS:
 				proximoCompraDois = true;
 				this.contMaisDois += especial.compraDois();
+				this.colocaCartaNaMesa(carta);
 				this.colocarCartaNoBaralhoReserva(carta);
 				this.direçãoDoJogoMaisReverso(this.direcao, carta);//se a carta for um reverso, vai ser modificado a direção do jogo
 				break;
 			case COMPRAQUATRO:
 				proximoCompraQuatro = true;
 				this.contMaisQuatro += especial.compraQuatro();
-				
+				this.compraDoisAgora(carta);
 				this.numeroDaCartaMesa = carta.getNumero();
 				this.corCartaMesa = especial.mudaCor();
 				this.especialCartaMesa = carta.getTipoDoEspecal();
@@ -93,7 +96,7 @@ public class Mesa {
 
 			case MUDACOR:
 				this.comprarQuatroAgora();//compra +4
-				
+				this.compraDoisAgora(carta);
 				this.numeroDaCartaMesa = carta.getNumero();
 				this.corCartaMesa = especial.mudaCor();
 				this.especialCartaMesa = carta.getTipoDoEspecal();
