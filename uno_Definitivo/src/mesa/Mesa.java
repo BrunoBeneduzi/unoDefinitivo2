@@ -174,6 +174,8 @@ public class Mesa {
 			}
 			break;
 		case 2:
+			this.comprarQuatroAgora();
+			this.compraDoisAgora(carta);
 			this.getPlayer().get(this.vez).compraCarta();
 			this.pularVez(direcao);
 			break;
