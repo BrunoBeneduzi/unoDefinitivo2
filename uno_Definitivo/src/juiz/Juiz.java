@@ -2,6 +2,7 @@ package juiz;
 import baralhoDeCartas.*;
 import cartas.*;
 import mesa.*;
+import jogador.*;
 public class Juiz {
 	Baralho baralho = new Baralho();
 	
@@ -20,5 +21,6 @@ public class Juiz {
 	
 	
 	public void uno() {
+		Jogador jogador = new Jogador();
 	}
 }

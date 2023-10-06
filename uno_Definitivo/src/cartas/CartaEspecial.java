@@ -29,8 +29,8 @@ public class CartaEspecial extends Carta {
 		}
 	}
 
-	public int reverso(int numeroDeJogadores ,int jogador ,TipoDeCarta direcao) {//muda a direção do jogo
-		if(TipoDeCarta.DIREITA.equals(direcao)) {
+	public int reverso(int numeroDeJogadores ,int jogador ,Direcao direcao) {//muda a direção do jogo
+		if(Direcao.DIREITA.equals(direcao)) {
 			if(jogador == numeroDeJogadores) return -numeroDeJogadores;
 			else return +1;
 		}
@@ -44,14 +44,14 @@ public class CartaEspecial extends Carta {
 
 	public int compraDois() {return 2;}
 
-	public int pula(int numeroDeJogadores,int jogador, TipoDeCarta direcao) {//pula o jogador
-		if(TipoDeCarta.DIREITA.equals(direcao)) {
-			if(jogador == numeroDeJogadores) return -numeroDeJogadores - 1;
-			else if(jogador == numeroDeJogadores - 1) return -numeroDeJogadores;
+	public int pula(int numeroDeJogadores,int jogador, Direcao direcao) {//pula o jogador
+		if(Direcao.DIREITA.equals(direcao)) {
+			if(jogador == numeroDeJogadores) return -numeroDeJogadores;
+			else if(jogador == numeroDeJogadores - 1) return -jogador;
 			else return +2;
 		}else {
-			if(jogador == 0) return +2;
-			else if(jogador == 1) return +2;
+			if(jogador == 0) return numeroDeJogadores - 1;
+			else if(jogador == 1) return numeroDeJogadores;
 			else return -2;
 		}
 	}
